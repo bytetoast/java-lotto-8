@@ -13,6 +13,14 @@ public class LottoMachine {
     private BonusNumberStatus bonusNumberStatus;
     private int bonusNumber;
 
+    public LottoMachine() {
+        this.winningNumbers = new ArrayList<>();
+        this.bonusNumber = 0;
+        this.winningNumbersStatus = WinningNumbersStatus.IDLE;
+        this.bonusNumberStatus = BonusNumberStatus.IDLE;
+        this.factory = new ValidationFactory();
+    }
+
     public void startManipulateWinningNumbersProcess() {
         this.winningNumbersStatus = WinningNumbersStatus.WAITING;
         System.out.println("\n당첨 번호를 입력해 주세요.");
