@@ -9,6 +9,7 @@ public class Operator {
         while (lottoMachine.getValidWinningNumbers()) {
             lottoMachine.setWinningNumbers(submitWinningNumbers());
         }
+        lottoMachine.startManipulateBonusNumberProcess();
     }
 
     public String submitWinningNumbers() {

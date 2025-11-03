@@ -10,6 +10,7 @@ public class LottoMachine {
     private WinningNumbersStatus winningNumbersStatus;
     private List<Integer> winningNumbers;
     private ValidationFactory factory;
+    private BonusNumberStatus bonusNumberStatus;
 
     public void startManipulateWinningNumbersProcess() {
         this.winningNumbersStatus = WinningNumbersStatus.WAITING;
@@ -68,5 +69,10 @@ public class LottoMachine {
                 throw new IllegalArgumentException("로또 번호에는 중복이 없어야 합니다.");
             }
         }
+    }
+
+    public void startManipulateBonusNumberProcess() {
+        this.bonusNumberStatus = BonusNumberStatus.WAITING;
+        System.out.println("\n보너스 번호를 입력해 주세요.");
     }
 }
