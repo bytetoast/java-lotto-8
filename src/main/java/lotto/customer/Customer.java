@@ -1,8 +1,9 @@
 package lotto.customer;
 
-import lotto.Lotto;
 import java.util.ArrayList;
 import java.util.List;
+import lotto.lotto.Lotto;
+import lotto.seller.LottoSeller;
 
 public class Customer {
     private int amountPaid;
@@ -15,5 +16,7 @@ public class Customer {
         this.lottos = new ArrayList<>();
     }
 
-
+    public void dealWithLottoSeller(LottoSeller lottoSeller) {
+        lottoSeller.startSaleProcess();
+    }
 }

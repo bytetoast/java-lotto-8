@@ -1,7 +1,13 @@
 package lotto;
 
+import lotto.customer.Customer;
+import lotto.seller.LottoSeller;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Customer customer = new Customer();
+        LottoSeller lottoSeller = new LottoSeller();
+
+        customer.dealWithLottoSeller(lottoSeller);
     }
 }

@@ -10,4 +10,9 @@ public class LottoSeller {
         this.amountPaid = 0;
         this.lottosCount = 0;
     }
+
+    public void startSaleProcess() {
+        this.purchaseStatus = PurchaseStatus.WAITING;
+        System.out.println("구입금액을 입력해 주세요.");
+    }
 }
