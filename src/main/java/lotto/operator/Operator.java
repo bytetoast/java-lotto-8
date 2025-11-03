@@ -10,10 +10,16 @@ public class Operator {
             lottoMachine.setWinningNumbers(submitWinningNumbers());
         }
         lottoMachine.startManipulateBonusNumberProcess();
+        while (lottoMachine.getValidBonusNumber()) {
+            lottoMachine.setBonusNumber(submitBonusNumber());
+        }
     }
 
     public String submitWinningNumbers() {
         return Console.readLine().trim();
     }
 
+    public String submitBonusNumber() {
+        return Console.readLine().trim();
+    }
 }

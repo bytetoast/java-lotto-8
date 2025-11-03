@@ -11,6 +11,7 @@ public class LottoMachine {
     private List<Integer> winningNumbers;
     private ValidationFactory factory;
     private BonusNumberStatus bonusNumberStatus;
+    private int bonusNumber;
 
     public void startManipulateWinningNumbersProcess() {
         this.winningNumbersStatus = WinningNumbersStatus.WAITING;
@@ -74,5 +75,34 @@ public class LottoMachine {
     public void startManipulateBonusNumberProcess() {
         this.bonusNumberStatus = BonusNumberStatus.WAITING;
         System.out.println("\n보너스 번호를 입력해 주세요.");
+    }
+
+    public boolean getValidBonusNumber() {
+        return this.bonusNumberStatus == BonusNumberStatus.WAITING;
+    }
+
+    public void setBonusNumber(String bonusNumberInput) {
+        int bonusNumberConverted;
+
+        try {
+            bonusNumberConverted = this.factory.convertToInt(bonusNumberInput);
+            checkForDuplicates(bonusNumberConverted);
+        } catch (IllegalArgumentException e) {
+            System.out.println("ERROR " + e.getMessage() + "\n보너스 번호를 다시 입력해주세요.");
+            return;
+        }
+        this.bonusNumber = bonusNumberConverted;
+        this.bonusNumberStatus = BonusNumberStatus.VALID;
+    }
+
+    public void checkForDuplicates(int bonusNumberConverted) {
+        if (this.winningNumbersStatus != WinningNumbersStatus.VALID) {
+            throw new IllegalArgumentException("아직 올바른 당첨 번호가 입력되지 않았습니다.");
+        }
+        for (int number : this.winningNumbers) {
+            if (bonusNumberConverted == number) {
+                throw new IllegalArgumentException("보너스 번호는 당첨 번호와 중복되지 않아야 합니다.");
+            }
+        }
     }
 }
