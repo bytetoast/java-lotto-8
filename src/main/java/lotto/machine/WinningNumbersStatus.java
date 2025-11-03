@@ -1,4 +1,5 @@
 package lotto.machine;
 
-public class WinningNumbersStatus {
+public enum WinningNumbersStatus {
+    IDLE, WAITING, VALID
 }
