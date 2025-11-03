@@ -42,6 +42,7 @@ public class Customer {
     public void summarize(List<Integer> winningNumbers, int bonusNumber, int amountPaid) {
         System.out.println("당첨 통계\n---");
         int totalPrize = 0;
+        float payoutRatio = 0;
 
         calculate(winningNumbers, bonusNumber);
         int index;
@@ -50,6 +51,8 @@ public class Customer {
             totalPrize += this.counts[index]*this.prizes[index];
             System.out.println(matchingNumbers[index] + " 일치 (" + formatter.format(this.prizes[index]) + "원) - " + this.counts[index] + "개");
         }
+        payoutRatio = (float) totalPrize /amountPaid*100;
+        System.out.println("총 수익률은 "+ String.format("%.1f", payoutRatio) +"%입니다.");
     }
 
     public void calculate(List<Integer> winningNumbers, int bonusNumber) {
