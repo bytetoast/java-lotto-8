@@ -67,4 +67,8 @@ public class LottoSeller {
         this.purchaseStatus = PurchaseStatus.VALID;
         return newLottos;
     }
+
+    public int getAmountPaid() {
+        return this.amountPaid;
+    }
 }

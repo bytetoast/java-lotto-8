@@ -14,5 +14,6 @@ public class Application {
 
         customer.dealWithLottoSeller(lottoSeller);
         operator.manipulateLottoMachine(lottoMachine);
+        customer.summarize(lottoMachine.getWinningNumbersNumber(), lottoMachine.getBonusNumber(), lottoSeller.getAmountPaid());
     }
 }

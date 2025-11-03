@@ -105,4 +105,12 @@ public class LottoMachine {
             }
         }
     }
+
+    public List<Integer> getWinningNumbersNumber() {
+        return this.winningNumbers;
+    }
+
+    public int getBonusNumber() {
+        return this.bonusNumber;
+    }
 }
