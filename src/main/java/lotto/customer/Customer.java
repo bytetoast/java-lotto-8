@@ -1,5 +1,6 @@
 package lotto.customer;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import lotto.lotto.Lotto;
@@ -18,5 +19,12 @@ public class Customer {
 
     public void dealWithLottoSeller(LottoSeller lottoSeller) {
         lottoSeller.startSaleProcess();
+        while (lottoSeller.getValidPurchase()) {
+            lottoSeller.receiveAndValidatePurchase(submitPurchase());
+        }
+    }
+
+    public String submitPurchase() {
+        return Console.readLine().trim();
     }
 }
