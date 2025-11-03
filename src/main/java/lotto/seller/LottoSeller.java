@@ -56,4 +56,15 @@ public class LottoSeller {
         }
         return amountPaidConverted;
     }
+
+    public List<Lotto> giveLottos() {
+        List<Lotto> newLottos = new ArrayList<>();
+        for (int index = 0; index < this.lottosCount; index++) {
+            List<Integer> quickPick = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+            System.out.println(quickPick);
+            newLottos.add(new Lotto(quickPick));
+        }
+        this.purchaseStatus = PurchaseStatus.VALID;
+        return newLottos;
+    }
 }

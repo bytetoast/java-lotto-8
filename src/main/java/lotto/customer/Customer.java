@@ -22,9 +22,14 @@ public class Customer {
         while (lottoSeller.getValidPurchase()) {
             lottoSeller.receiveAndValidatePurchase(submitPurchase());
         }
+        receiveLottos(lottoSeller.giveLottos());
     }
 
     public String submitPurchase() {
         return Console.readLine().trim();
+    }
+
+    public void receiveLottos(List<Lotto> lottosReceived) {
+        this.lottos = lottosReceived;
     }
 }
